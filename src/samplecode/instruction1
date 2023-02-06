@@ -1,0 +1,13 @@
+/*
+To prevent the form from refreshing the page, call event.preventDefault() inside handleSubmit().
+This prevents the browser from performing its default behavior when a form is submitted.
+*/
+
+/*
+Function components in React take 'props' as an argument and 
+you don't have to specify the 'this' keyword in the core of function.
+
+export function(props){
+    
+}
+*/

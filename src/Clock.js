@@ -1,5 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+export function Clock() {
+    const [date, setDate] = useState(new Date());
+
+    useEffect(() => {
+        const intervalID = setInterval(() => {
+            setDate(new Date())
+        }, 1000);
+
+        return () => {
+            clearInterval(intervalID);
+        }
+    }, [date])
+
+    return (<span>{date.toLocaleTimeString()}</span>)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 export class Clock extends React.Component {
     constructor(props) {
         super(props);
@@ -28,3 +56,4 @@ export class Clock extends React.Component {
         clearInterval(this.intervalID);
     }
 }
+*/

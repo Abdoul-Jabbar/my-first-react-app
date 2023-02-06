@@ -5,22 +5,21 @@ import {Names} from './Names';
 import { NamesListContainer } from './NamesListContainer';
 import { Clock } from './Clock';
 
-function handleClick(name) {
-  let greeting = 'Hello ';
-  
-  if(name){
-    greeting += name;
-  } else {
-    let num = Math.floor(Math.random() * 10);
-    let selectedName = Names[num];
-    selectedName ? greeting += selectedName : greeting += 'Sir';
-  }
-
-  greeting += '!';
-  alert(greeting);
-}
-
 function App() {
+  const handleClick = (name) => {
+    let greeting = 'Hello ';
+    
+    if(name){
+      greeting += name;
+    } else {
+      let num = Math.floor(Math.random() * 10);
+      let selectedName = Names[num];
+      selectedName ? greeting += selectedName : greeting += 'Sir';
+    }
+  
+    greeting += '!';
+    alert(greeting);
+  }
   
   return (
     <div className="App">
@@ -29,7 +28,7 @@ function App() {
         <p>
           Hello Codecademy! It's <Clock /> O'clock
         </p>
-        <Button onClick={() => handleClick()} label="Edit label" />
+        <Button onClick={() => handleClick()} label="Action button" />
         <a
           className="App-link"
           href="https://reactjs.org"
