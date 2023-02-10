@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NamesList } from "./NamesList";
+import NamesList from "./NamesList";
 
-export function NamesListContainer() {
+export default function NamesListContainer() {
     const [name, setName] = useState("John");
     const changeName = (newName) => {
         setName(newName)
@@ -19,9 +19,6 @@ export function NamesListContainer() {
 
     return (<NamesList name={name} surname={surname} onChange={handleChange} />)
 }
-
-
-
 
 
 

@@ -1,4 +1,4 @@
-export const Names = ['Abdoul','Jabbar', 'Hassan', 'Sekou', 'Adam','Hakim', 'Rahim'];
+export const Names = ['Abdoul', 'Hassan', 'Junior', 'Sekou', 'Adam','Hakim', 'Rahim','Jabbar'];
 export const FullNames = [
     {name: 'Abdoul', surname: 'SOUMAHORO'},
     {name: 'Jabbar', surname: 'KONE'}, 

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-export function Clock() {
+export default function Clock(props) {
+    let { username } = useParams();
+    if(!username) {
+        username = 'Visitor'
+    }
+
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
@@ -13,7 +19,12 @@ export function Clock() {
         }
     }, [date])
 
-    return (<span>{date.toLocaleTimeString()}</span>)
+    return (
+    <div>
+        <div> Hello {username}! It's <span>{date.toLocaleTimeString()}</span> O'clock</div>
+        <p>Time according your local TimeZone</p>
+    </div>
+    )
 }
 
 

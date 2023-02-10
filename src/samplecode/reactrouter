@@ -1,0 +1,159 @@
+/*
+1) Installation
+npm install --save react-router-dom@5.2.0
+or
+npm install --save react-router-dom
+
+
+2) Import in Component
+import { BrowserRouter as Router } from 'react-router-dom';
+
+
+3) Surround your App component with <Router></Router> element
+
+<Router>
+    <div className="App">
+        <header className="App-header">
+            <h1>Hello World</h1>
+        </header>
+    </div>
+</Router>
+
+
+4) Start Routing : Import Route object in your component next to BrowserRouter
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
+5) Use the routing like code bellow
+
+<Router>
+    <Route path="/home">
+        <div className="App">
+            <header className="App-header">
+                <h1>Hello World</h1>
+            </header>
+        </div>
+    </Route>
+</Router>
+
+*Note: A component without a path route will be render at anytime.
+
+6) Import Link and NavLink objects to match paths and links in your application
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+
+Use them as shown in the code of 'App.js'
+
+
+7) Declare a route like this 'path/to/my/route/:param1/special/mention/to/:param2' using : before each param
+   Import 'useParams' function in the component that will receive params in it
+   
+   Import { useParams } from 'react-router-dom';
+
+   let { params } = useParams();    => To extract the params passed in the Route.
+
+   See the example between 'App.js' and 'Clock.js'
+
+
+8) 'Switch' object from 'react-router-dom' and 'exact' property of 'Route' object
+   import { BrowserRouter as Router, Route, Link, NavLink, Switch} from 'react-dom-router';
+
+   'Switch' allow you to manage similar path to avoid simultanous rendering on the screen. Order of path is hightly important
+   'exact' allow you to control if we want to render or not the component on the default route '/'
+
+   See the example in 'App.js' for more details.
+
+   'strict' and 'sensitive' are additional properties for more customization
+
+
+9) Routes nesting
+   See the example between 'Users' and 'UserProfile' components to see how to use it
+
+
+10) Import 'useRouteMatch' object from 'react-router-dom' to handle path in routing
+    See the example between 'Users' and 'UserProfile' components to see how to use it
+
+    import { useRouteMatch } from 'react-router-dom';
+
+    let { patch, url } = useRouteMatch();
+
+    The path property contains the dynamic path pattern with URL parameters (eg. /bands/:band)
+    and should be used for creating relative path props for Route components (eg. /bands/:band/songs/:songName)
+
+    The url property has the values of URL parameters filled in (eg. /bands/queen) and should be used for creating
+    relative to props for Link components (eg. /bands/queen/songs/we_are_the_champions).
+
+
+11) Import 'Redirect' object from 'react-router-dom' to add redirectin functionalities in your App
+    See the example of 'UserProfile' component to see how to use it
+
+    import React from 'react';
+    import { useParams, Redirect } from 'react-router-dom';
+    import { Names } from './Names';
+
+
+    export default function User() {
+        let { name } = useParams();
+        if(!Names.includes(name)) {
+            return <Redirect to='/users' />;
+        }
+
+        return (
+            <div>
+                <p>Hello {name}</p>
+                <p>This is your personnal blog page</p>
+            </div>
+        )
+    }
+
+
+12) Import 'useHistory' object from 'react-router-dom' to access to the history stack of your navigation in your App
+    import { useHistory } from 'react-router-dom';
+
+    const history = useHistory();           => useHitory return an object and you can access to his methods and properties.
+
+    See the example of 'UserNumber' component to see how to use it
+
+    import React from 'react';
+    import { Names } from './Names';
+    import { useParams, useHistory } from 'react-router-dom';
+
+    export default function UserNumber() {
+        const history = useHistory();
+        let { name } = useParams();
+
+        if(!Names.includes(name)) {
+            history.goBack();                                   
+        }
+
+        let number = Math.floor(Math.random() * 101);
+
+        return (
+            <div>
+                <p>Dear {name}, your Magic number is {number}.</p>
+                <p>Wish you a good luck!</p>
+            </div>
+        )
+    }
+
+    *Note: you can use the 'history' object like this :
+    history.push('/');
+    history.push('/users');
+    history.goForward();
+    history.goBack();
+    history.go(number);     => positive number go forward and negative go backward.
+
+
+13) Import 'useLocation' object from 'react-router-dom' to parse the url and extract the query params
+    import { useLocation } from 'react-router-dom';
+
+    const { search } = useLocation();
+
+    See the example of 'Users' component to see how to use it
+
+    const { search } = useLocation();
+    const queryParams = new URLSearchParams(search);
+    const sortOrder = queryParams.get('order');
+
+    *These 3 instructions above are useful to get any query in the url.
+
+*/

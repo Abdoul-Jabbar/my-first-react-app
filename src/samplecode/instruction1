@@ -11,3 +11,10 @@ export function(props){
     
 }
 */
+
+/*
+If you need to know what text is currently in the box, then you can ask the <input />, possibly with some code like this:
+
+let input = document.querySelector('input[type="text"]');
+let typedText = input.value; // input.value will be equal to whatever text is currently in the text box.
+*/

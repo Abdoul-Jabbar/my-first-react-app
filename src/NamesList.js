@@ -1,7 +1,7 @@
 import React from 'react';
 import { FullNames } from './Names';
 
-export function NamesList(props) {
+export default function NamesList(props) {
     const handleChange = ({ target }) => {
         const fullName = target.value.split(' ');
         const name = fullName[0];
@@ -11,12 +11,12 @@ export function NamesList(props) {
 
     return (
         <div>
-            <h1>Hey my name is {props.name} {props.surname}!</h1>
             <select name='memberList' id='memberList' onChange={handleChange}>
                 {FullNames.map((x, y) => {
                     return <option key={y}>{x.name} {x.surname}</option>
                 })}
             </select>
+            <p>Hey my name is {props.name} {props.surname}!</p>
         </div>
     );
 }
