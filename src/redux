@@ -1,0 +1,68 @@
+/*
+const supplies = 100;
+const distance = 0;
+const days = 0;
+
+const initialWagonState = {
+  supplies,
+  distance,
+  days
+}
+
+const reducer = (state = initialWagonState, action) => {
+  switch(action.type) {
+    case 'gather':
+      return {
+        ...state,
+        supplies: state.supplies + 15,
+        days: state.days + 1
+      }
+    case 'travel':
+      return {
+        ...state,
+        days: state.days + action.payload,
+        supplies: state.supplies - 20 * action.payload,
+        distance: state.distance + 10 * action.payload
+      }
+    case 'tippedWagon':
+      return {
+        ...state,
+        supplies: state.supplies - 30,
+        days: state.days + 1
+      }
+    default:
+      return state
+  }
+}
+
+let wagon;
+wagon = reducer(undefined, {});
+console.log(wagon);
+
+const actionTravel = {
+  type: 'travel',
+  payload: 1
+}
+wagon = reducer(wagon, actionTravel);
+console.log(wagon);
+
+const actionGather = {
+  type: 'gather'
+}
+wagon = reducer(wagon, actionGather);
+console.log(wagon);
+
+const actionTippedWagon = {
+  type: 'tippedWagon'
+}
+wagon = reducer(wagon, actionTippedWagon);
+console.log(wagon);
+
+const actionTravel2 = {
+  type: 'travel',
+  payload: 3
+}
+wagon = reducer(wagon, actionTravel2);
+console.log(wagon);
+
+*/
